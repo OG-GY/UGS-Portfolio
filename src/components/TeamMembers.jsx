@@ -42,7 +42,7 @@ const TeamMembers = () => {
     ];
 
     return (
-        <section ref={ref} className="relative py-28 px-6 lg:px-32 bg-[#0f1012] overflow-hidden">
+        <section ref={ref} className="relative py-28 px-6 lg:px-32 bg-white dark:bg-[#0f1012] overflow-hidden transition-colors duration-300">
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -54,7 +54,7 @@ const TeamMembers = () => {
                         >
                             The Squad
                         </motion.span>
-                        <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight uppercase tracking-tight">
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight uppercase tracking-tight transition-colors duration-300">
                             MEET THE <span className="text-red-600">ELITE.</span>
                         </h2>
                     </div>
@@ -90,10 +90,10 @@ const TeamMembers = () => {
                     className="flex justify-center mt-20"
                 >
                     <Link href="/about?tab=Team">
-                        <button className="group flex items-center gap-6 text-white font-black uppercase tracking-widest text-xs hover:text-red-500 transition-colors">
-                            <span className="h-px w-20 bg-gray-800 group-hover:bg-red-600 transition-all" />
+                        <button className="group flex items-center gap-6 text-gray-900 dark:text-white font-black uppercase tracking-widest text-xs hover:text-red-500 transition-colors">
+                            <span className="h-px w-20 bg-gray-300 dark:bg-gray-800 group-hover:bg-red-600 transition-all" />
                             VIEW FULL TEAM ROSTER
-                            <span className="h-px w-20 bg-gray-800 group-hover:bg-red-600 transition-all" />
+                            <span className="h-px w-20 bg-gray-300 dark:bg-gray-800 group-hover:bg-red-600 transition-all" />
                         </button>
                     </Link>
                 </motion.div>

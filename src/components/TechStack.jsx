@@ -24,7 +24,7 @@ export default function Technologies() {
     ];
 
     return (
-        <section ref={ref} className="relative py-20 px-6 lg:px-32 overflow-hidden bg-gradient-to-br from-red-700 via-red-600 to-red-800">
+        <section ref={ref} className="relative py-20 px-6 lg:px-32 overflow-hidden bg-gradient-to-br from-red-100 via-red-50 to-red-100 dark:from-red-700 dark:via-red-600 dark:to-red-800 transition-colors duration-300">
             {/* Ambient overlay for depth */}
             <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
 
@@ -40,7 +40,7 @@ export default function Technologies() {
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
-                        className="text-white/80 font-bold tracking-[0.3em] uppercase text-sm mb-4 block"
+                        className="text-red-800 dark:text-white/80 font-bold tracking-[0.3em] uppercase text-sm mb-4 block transition-colors duration-300"
                     >
                         Our Tech Stack
                     </motion.span>
@@ -48,7 +48,7 @@ export default function Technologies() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={inView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-4xl md:text-5xl font-bold text-white tracking-tight"
+                        className="text-4xl md:text-5xl font-bold text-red-900 dark:text-white tracking-tight transition-colors duration-300"
                     >
                         Technologies
                     </motion.h2>
@@ -56,7 +56,7 @@ export default function Technologies() {
                         initial={{ opacity: 0 }}
                         animate={inView ? { opacity: 1 } : {}}
                         transition={{ delay: 0.2, duration: 0.5 }}
-                        className="max-w-2xl mx-auto text-white/80 text-base leading-relaxed mt-4"
+                        className="max-w-2xl mx-auto text-red-900 dark:text-white/80 text-base leading-relaxed mt-4 transition-colors duration-300"
                     >
                         We are passionate about unlocking our potential to maximum on mobile application development services being offered worldwide.
                     </motion.p>
@@ -72,14 +72,14 @@ export default function Technologies() {
                             transition={{ duration: 0.5, delay: index * 0.05 }}
                             className="flex flex-col items-center group"
                         >
-                            <div className="relative p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:border-white/50 hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                            <div className="relative p-4 bg-white/80 dark:bg-white/10 backdrop-blur-sm rounded-2xl border border-red-200 dark:border-white/20 hover:border-red-400 dark:hover:border-white/50 hover:bg-white dark:hover:bg-white/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
                                 <img
                                     src={tech.image}
                                     alt={tech.name}
                                     className="w-12 h-12 md:w-14 md:h-14 object-contain transition-transform duration-300"
                                 />
                             </div>
-                            <p className="text-white font-semibold text-sm mt-3 text-center opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                            <p className="text-red-900 dark:text-white font-semibold text-sm mt-3 text-center opacity-80 group-hover:opacity-100 transition-opacity duration-300">
                                 {tech.name}
                             </p>
                         </motion.div>

@@ -69,7 +69,7 @@ export default function KeyNumbers() {
     ];
 
     return (
-        <section ref={ref} className="relative py-32 px-6 lg:px-32 bg-[#0f1012] border-y border-white/5">
+        <section ref={ref} className="relative py-32 px-6 lg:px-32 bg-white dark:bg-[#0f1012] border-y border-gray-200 dark:border-white/5 transition-colors duration-300">
             {/* Background Data Stream Effect */}
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none select-none font-mono text-[10px] text-red-500 flex flex-wrap gap-4 p-4 overflow-hidden">
                 {Array.from({ length: 20 }).map((_, i) => (
@@ -96,9 +96,9 @@ export default function KeyNumbers() {
                             Live Statistics
                         </motion.div>
 
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-400 leading-tight tracking-tight">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-600 dark:text-gray-400 leading-tight tracking-tight transition-colors duration-300">
                             DOMINATING THE <br />
-                            <span className="text-red-800/80">GAMING FRONT</span>
+                            <span className="text-red-600 dark:text-red-800/80">GAMING FRONT</span>
                         </h2>
 
                         <div className="relative inline-block">
@@ -110,12 +110,12 @@ export default function KeyNumbers() {
                                 {displayCount}
                             </motion.div>
                             <div className="relative flex items-baseline gap-4">
-                                <span className="text-7xl md:text-[180px] font-black text-white">
+                                <span className="text-7xl md:text-[180px] font-black text-gray-900 dark:text-white transition-colors duration-300">
                                     {displayCount}
                                 </span>
                                 <span className="text-4xl md:text-6xl font-black text-red-600">{unit}+</span>
                             </div>
-                            <p className="text-base md:text-lg font-medium text-gray-500 mt-2 uppercase tracking-widest">
+                            <p className="text-base md:text-lg font-medium text-gray-600 dark:text-gray-500 mt-2 uppercase tracking-widest transition-colors duration-300">
                                 Global Game Installs
                             </p>
                         </div>
@@ -130,20 +130,20 @@ export default function KeyNumbers() {
                                 animate={inView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ delay: i * 0.1 }}
                                 whileHover={{ scale: 1.02, y: -5 }}
-                                className="relative group p-8 rounded-3xl bg-[#1a1b1e] border border-gray-800 hover:border-red-500/50 transition-all shadow-2xl overflow-hidden"
+                                className="relative group p-8 rounded-3xl bg-gray-50 dark:bg-[#1a1b1e] border border-gray-200 dark:border-gray-800 hover:border-red-500/50 transition-all shadow-2xl overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-20 transition-opacity">
                                     <Icon icon={stat.icon} className="text-6xl text-white" />
                                 </div>
                                 <div className="relative z-10 space-y-4">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-red-500/30 transition-colors">
+                                        <div className="w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/5 flex items-center justify-center border border-gray-300 dark:border-white/10 group-hover:border-red-500/30 transition-colors">
                                             <Icon icon={stat.icon} className={`text-xl ${stat.color}`} />
                                         </div>
-                                        <span className="text-[10px] font-bold tracking-[0.3em] text-gray-500 uppercase">{stat.label}</span>
+                                        <span className="text-[10px] font-bold tracking-[0.3em] text-gray-600 dark:text-gray-500 uppercase transition-colors duration-300">{stat.label}</span>
                                     </div>
-                                    <div className="text-4xl font-bold text-white">{stat.value}</div>
-                                    <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                                    <div className="text-4xl font-bold text-gray-900 dark:text-white transition-colors duration-300">{stat.value}</div>
+                                    <div className="h-1 w-full bg-gray-200 dark:bg-white/5 rounded-full overflow-hidden transition-colors duration-300">
                                         <motion.div
                                             initial={{ width: 0 }}
                                             animate={inView ? { width: "70%" } : {}}

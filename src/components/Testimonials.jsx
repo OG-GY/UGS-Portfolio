@@ -57,7 +57,7 @@ const TestimonialSection = () => {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-28 px-6 bg-[#0f1012] overflow-hidden border-t border-white/5">
+    <section ref={ref} className="relative py-28 px-6 bg-white dark:bg-[#0f1012] overflow-hidden border-t border-gray-200 dark:border-white/5 transition-colors duration-300">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-20">
           {/* Left: Section Header & Progress */}
@@ -70,7 +70,7 @@ const TestimonialSection = () => {
               >
                 Intel / Comms
               </motion.span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight uppercase tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight uppercase tracking-tight transition-colors duration-300">
                 CLIENT <br />
                 <span className="text-red-600">FEEDBACK.</span>
               </h2>
@@ -78,10 +78,10 @@ const TestimonialSection = () => {
 
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Signal Sync</span>
-                <span className="text-[10px] font-black text-white uppercase italic">{Math.round(progress)}%</span>
+                <span className="text-[10px] font-black text-gray-600 dark:text-gray-500 uppercase tracking-widest transition-colors duration-300">Signal Sync</span>
+                <span className="text-[10px] font-black text-gray-900 dark:text-white uppercase italic transition-colors duration-300">{Math.round(progress)}%</span>
               </div>
-              <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="h-1 w-full bg-gray-200 dark:bg-white/5 rounded-full overflow-hidden transition-colors duration-300">
                 <motion.div
                   className="h-full bg-red-600 shadow-[0_0_10px_rgba(220,38,38,0.5)]"
                   animate={{ width: `${progress}%` }}
@@ -94,7 +94,7 @@ const TestimonialSection = () => {
                 <button
                   key={t.id}
                   onClick={() => { setSelectedTestimonial(t); setProgress(0); }}
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all bg-[#1a1b1e] border ${selectedTestimonial.id === t.id ? 'border-red-600 text-red-600 scale-110 shadow-lg' : 'border-white/5 text-gray-500 hover:border-white/20'}`}
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all bg-gray-100 dark:bg-[#1a1b1e] border ${selectedTestimonial.id === t.id ? 'border-red-600 text-red-600 scale-110 shadow-lg' : 'border-gray-300 dark:border-white/5 text-gray-600 dark:text-gray-500 hover:border-gray-400 dark:hover:border-white/20'}`}
                 >
                   <span className="font-black text-xs text-inherit">{t.id}</span>
                 </button>
@@ -111,7 +111,7 @@ const TestimonialSection = () => {
                 animate={{ opacity: 1, x: 0, skewX: 0 }}
                 exit={{ opacity: 0, x: -50, skewX: -5 }}
                 transition={{ duration: 0.5 }}
-                className="relative p-10 md:p-14 bg-[#1a1b1e] rounded-[3rem] border border-white/5 shadow-2xl overflow-hidden group"
+                className="relative p-10 md:p-14 bg-gray-50 dark:bg-[#1a1b1e] rounded-[3rem] border border-gray-200 dark:border-white/5 shadow-2xl overflow-hidden group transition-colors duration-300"
               >
                 {/* Quote UI Decor */}
                 <div className="absolute top-0 right-0 p-8 opacity-5">
@@ -120,16 +120,16 @@ const TestimonialSection = () => {
 
                 <div className="space-y-8">
                   <div className="flex items-center gap-6">
-                    <div className="w-20 h-20 rounded-2xl bg-white/5 p-1 border border-white/10 group-hover:border-red-600/50 transition-colors">
+                    <div className="w-20 h-20 rounded-2xl bg-gray-100 dark:bg-white/5 p-1 border border-gray-300 dark:border-white/10 group-hover:border-red-600/50 transition-colors">
                       <img src={selectedTestimonial.logo} alt={selectedTestimonial.name} className="w-full h-full object-contain rounded-xl grayscale group-hover:grayscale-0 transition-all" />
                     </div>
                     <div>
-                      <h4 className="text-2xl font-black text-white uppercase italic">{selectedTestimonial.name}</h4>
+                      <h4 className="text-2xl font-black text-gray-900 dark:text-white uppercase italic transition-colors duration-300">{selectedTestimonial.name}</h4>
                       <p className="text-red-600 font-black tracking-widest text-[10px] uppercase">{selectedTestimonial.company}</p>
                     </div>
                   </div>
 
-                  <blockquote className="text-gray-400 text-lg font-normal leading-relaxed border-l-4 border-red-600/40 pl-6 group-hover:border-red-600 transition-all">
+                  <blockquote className="text-gray-600 dark:text-gray-400 text-lg font-normal leading-relaxed border-l-4 border-red-600/40 pl-6 group-hover:border-red-600 transition-all">
                     "{selectedTestimonial.testimonial}"
                   </blockquote>
                 </div>

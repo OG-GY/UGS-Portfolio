@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { VRprojects } from "@/lib/projectsData";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Play } from "lucide-react";
@@ -18,8 +18,20 @@ export default function VRProjects() {
     setCurrentVideo(null);
   };
 
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isVideoPlaying) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isVideoPlaying]);
+
   return (
-    <div className="min-h-screen bg-[#0f1012] text-white">
+    <div className="min-h-screen bg-white dark:bg-[#0f1012] text-gray-900 dark:text-white transition-colors duration-300">
       {/* Header Section - Exact match to /models */}
       <header className="relative pt-32 pb-20 px-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl">
@@ -39,7 +51,7 @@ export default function VRProjects() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
+            className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 transition-colors duration-300"
           >
             360° VR <span className="text-red-600">Worlds</span>
           </motion.h1>
@@ -47,7 +59,7 @@ export default function VRProjects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="max-w-2xl mx-auto text-gray-400 text-lg leading-relaxed"
+            className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 text-lg leading-relaxed transition-colors duration-300"
           >
             Dive into the immersive worlds we've created. Experience gaming like never before!
           </motion.p>
@@ -63,7 +75,7 @@ export default function VRProjects() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden border border-gray-800 bg-[#1a1b1e] hover:border-red-500/50 transition-all duration-300 shadow-xl"
+              className="group relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#1a1b1e] hover:border-red-500/50 transition-all duration-300 shadow-xl"
               whileHover={{ y: -5 }}
             >
               <div className="relative h-64 overflow-hidden cursor-pointer" onClick={() => playVideo(project.video)}>
@@ -78,10 +90,10 @@ export default function VRProjects() {
                   </div>
                 </div>
               </div>
-              <div className="p-4 border-t border-gray-800 bg-[#1a1b1e] relative z-20">
-                <h3 className="text-xl font-bold text-white group-hover:text-red-500 transition-colors">{project.title}</h3>
+              <div className="p-4 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#1a1b1e] relative z-20 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-red-500 transition-colors">{project.title}</h3>
                 <div className="flex items-center gap-2 mt-2">
-                  <span className="text-xs font-medium px-2 py-1 bg-gray-800 text-gray-300 rounded">VR Experience</span>
+                  <span className="text-xs font-medium px-2 py-1 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded transition-colors duration-300">VR Experience</span>
                 </div>
               </div>
             </motion.div>
@@ -96,20 +108,22 @@ export default function VRProjects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 overflow-y-auto"
             onClick={closeModal}
+            style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
           >
             <motion.div
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
-              className="relative w-full max-w-4xl bg-[#1a1b1e] rounded-2xl overflow-hidden border border-gray-800 shadow-2xl"
+              className="relative w-full max-w-4xl bg-white dark:bg-[#1a1b1e] rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-2xl my-auto transition-colors duration-300"
               onClick={(e) => e.stopPropagation()}
+              style={{ margin: 'auto' }}
             >
-              <div className="flex justify-between items-center p-4 border-b border-gray-800">
-                <h3 className="text-white font-bold">VR Experience Preview</h3>
+              <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+                <h3 className="text-gray-900 dark:text-white font-bold transition-colors duration-300">VR Experience Preview</h3>
                 <button
-                  className="text-gray-400 hover:text-white transition-colors bg-gray-800 hover:bg-red-600 rounded-full p-2"
+                  className="text-gray-600 dark:text-gray-400 hover:text-white transition-colors bg-gray-100 dark:bg-gray-800 hover:bg-red-600 rounded-full p-2"
                   onClick={closeModal}
                 >
                   <X size={20} />

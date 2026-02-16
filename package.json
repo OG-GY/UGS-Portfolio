@@ -14,8 +14,8 @@
     "@iconify/react": "^5.0.2",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.1.2",
-    "@react-three/drei": "^10.7.7",
-    "@react-three/fiber": "^9.5.0",
+    "@react-three/drei": "^9.114.0",
+    "@react-three/fiber": "^8.17.10",
     "@types/nodemailer": "^7.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -38,7 +38,6 @@
     "redux": "^5.0.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "theme-provider": "^1.0.8",
     "three": "^0.182.0"
   },
   "devDependencies": {
